@@ -38,8 +38,9 @@ if (isset($_POST["submit"])) {
 
 <body>
     <h1>Ubah Data Games</h1>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= $game["id"]; ?>">
+        <input type="hidden" name="coverLama" value="<?= $game["cover"]; ?>">
         <ul>
             <li>
                 <label for="name">Judul Game : </label>
@@ -66,8 +67,9 @@ if (isset($_POST["submit"])) {
                 <input type="date" name="release_date" id="release_date" required value="<?= $game["release_date"]; ?>">
             </li>
             <li>
-                <label for=" cover">Cover : </label>
-                <input type="text" name="cover" id="cover" required value="<?= $game["cover"]; ?>">
+                <label for=" cover">Cover : </label><br>
+                <img src="images/<?= $game['cover']; ?>" alt="" width="150"><br>
+                <input type="file" name="cover" id="cover" required">
             </li>
             <li>
                 <button type=" submit" name="submit">Ubah Data</button>

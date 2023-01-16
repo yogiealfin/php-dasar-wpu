@@ -69,11 +69,14 @@ function upload()
         return false;
     }
 
-    // Lolos semua pengecekan, gambar siap diupload
-    move_uploaded_file($tmpName, 'images/' . $namaFile);
-    return $namaFile;
+    // generate nama file baru untuk mencegah nama duplikat dan menimpa file di directory
+    $namaFileBaru = uniqid();
+    $namaFileBaru .= '.';
+    $namaFileBaru .= $ekstensiGambar;
 
-    var_dump($_FILES);
+    // Lolos semua pengecekan, gambar siap diupload
+    move_uploaded_file($tmpName, 'images/' . $namaFileBaru);
+    return $namaFileBaru;
 }
 
 function hapus($id)
@@ -94,6 +97,15 @@ function ubah($data)
     $genre = htmlspecialchars($data["genre"]);
     $platform = htmlspecialchars($data["platform"]);
     $release_date = htmlspecialchars($data["release_date"]);
+    $coverLama = htmlspecialchars($data["coverLama"]);
+
+    // cek apakah user memilih cover baru atau tidak
+    if ($_FILES['cover']['error'] === 4) {
+        $cover = $coverLama;
+    } else {
+        $cover = upload();
+    }
+
     $cover = htmlspecialchars($data["cover"]);
 
     // query insert data
