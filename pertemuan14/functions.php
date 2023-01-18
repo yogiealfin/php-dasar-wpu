@@ -143,7 +143,7 @@ function registrasi($data)
     $konfirmasi = mysqli_real_escape_string($conn, $data["konfirmasi"]);
 
     // cek username sudah ada didatabase atau belum
-    $result = mysqli_query($conn, "SELECT username FROM user WHERE username === '$username'");
+    $result = mysqli_query($conn, "SELECT username FROM user WHERE username = '$username'");
     if (mysqli_fetch_assoc($result)) {
         echo "<script>alert('Username yang dipilih sudah terdaftar');</script>";
         return false;
