@@ -31,24 +31,26 @@ if (isset($_POST['submit'])) {
 
 <body>
     <h1>Halaman Registrasi</h1>
-    <form action="" method="post"></form>
-    <ul>
-        <li>
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username">
-        </li>
-        <li>
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password">
-        </li>
-        <li>
-            <label for="konfirmasi">Konfirmasi Password</label>
-            <input type="password" name="konfirmasi" id="konfirmasi">
-        </li>
-        <li>
-            <button type="submit" name="submit">Register</button>
-        </li>
-    </ul>
+    <form action="" method="post">
+        <ul>
+            <li>
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username">
+            </li>
+            <li>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+            </li>
+            <li>
+                <label for="konfirmasi">Konfirmasi Password</label>
+                <input type="password" name="konfirmasi" id="konfirmasi">
+            </li>
+            <br>
+            <li>
+                <button type="submit" name="submit">Register</button>
+            </li>
+        </ul>
+    </form>
 </body>
 
 </html>
